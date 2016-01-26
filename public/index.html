@@ -1,22 +1,111 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap -->
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <!-- Font-Awesome -->
+        <link href="Font-Awesome/css/font-awesome.min.css" rel="stylesheet">
+        <!-- My style -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+
+body {
+    background-color: #5ea2a6;
+    font-family: "Verdana";
+    text-align: center;
+}
+
+#title {
+  font-family: "Verdana";
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+  font-size: 7em ;
+
+}
+
+form{
+position: relative;
+  display: inline-block;
+  max-width: 200px;
+  min-width: 250px;
+  box-sizing: border-box;
+  padding: 20px 20px;
+  background-color: white;
+  border-radius: 40px;
+   border-color: #296278;
+  margin: 15px ;
+  
+}
+
+#form2{
+  max-width: 200px;
+  min-width: 250px;
+  padding: 20px 20px;
+  background-color: white;
+  border-radius: 40px;
+    margin: 20px ;
+}
+
+#content{
+  position: absolute;
+  display: inline-block;
+}
+button{
+  border-radius: 8px;
+  background-color: #008CBA;
+   border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+h4{
+  font-color:#2962278;
+}
+
+
+
+    </style>
     <title>CSS/HTML Workshop with Drivy</title>
   </head>
   <body>
+<div id="title"> DRIVY. </div>
+<h4> Estimate for free </h4>
+
+ 
+
     <div id="car">
+      <form>
       <input class="model" type="text" placeholder="Car model"/>
+  
+
       <input class="price-by-day" type="number" placeholder="Price by day"/>
       <input class="price-by-km" type="number" placeholder="Price by km"/>
+    </form>
     </div>
+
     <div id="rental">
+      <form id="form2" >
       <input class="begin" type="date" placeholder="Rental begin date"/>
       <input class="end" type="date" placeholder="Rental end date"/>
       <input class="distance" type="number" placeholder="Distance in km"/>
       <input class="option" type="checkbox" placeholder="Deductible option"/>
+    </form>
     </div>
+
+  </div>
+
     <button id="compute">Compute</button>
+    
+<div class="content">
     <div id="actors"></div>
+</div>
+
     <script id="template" type="x-tmpl-mustache">
       {{#actors}}
         <div class="actor">
@@ -24,10 +113,23 @@
           <span>{{type}}</span>
           <span>{{amount}}</span>
         </div>
-      {{/actors}}
+       {{/actors}}
     </script>
+
+
+
+  
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
     <script src="drivy.js"></script>
     <script src="index.js"></script>
+
+
+      <footer>
+        <script src="http://code.jquery.com/jquery.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+    </footer>
   </body>
 </html>
