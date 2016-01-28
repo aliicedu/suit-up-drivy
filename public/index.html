@@ -1,135 +1,170 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <!-- Bootstrap -->
-        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-        <!-- Font-Awesome -->
-        <link href="Font-Awesome/css/font-awesome.min.css" rel="stylesheet">
-        <!-- My style -->
-        <link href="css/bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="assets/img/favicon.png">
 
-body {
-    background-color: #5ea2a6;
-    font-family: "Verdana";
-    text-align: center;
-}
+    <title>DRIVY.</title>
 
-#title {
-  font-family: "Verdana";
-  font-weight: bold;
-  color: #ffffff;
-  text-align: center;
-  font-size: 7em ;
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
 
-}
+    <!-- Custom styles for this template -->
+    <link href="assets/css/main.css" rel="stylesheet">
 
-form{
-position: relative;
-  display: inline-block;
-  max-width: 200px;
-  min-width: 250px;
-  box-sizing: border-box;
-  padding: 20px 20px;
-  background-color: white;
-  border-radius: 40px;
-   border-color: #296278;
-  margin: 15px ;
-  
-}
-
-#form2{
-  max-width: 200px;
-  min-width: 250px;
-  padding: 20px 20px;
-  background-color: white;
-  border-radius: 40px;
-    margin: 20px ;
-}
-
-#content{
-  position: absolute;
-  display: inline-block;
-}
-button{
-  border-radius: 8px;
-  background-color: #008CBA;
-   border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-}
-
-h4{
-  font-color:#2962278;
-}
-
-
-
-    </style>
-    <title>CSS/HTML Workshop with Drivy</title>
+    <!-- Fonts from Google Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,900' rel='stylesheet' type='text/css'>
+    
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
   </head>
-  <body>
-<div id="title"> DRIVY. </div>
-<h4> Estimate for free </h4>
 
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-default-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="navbar-brand" href="#"><b>DRIVY.</b></div>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">Already a member?</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+
+	<div id="headerwrap">
+		<div class="container">
+			<div class="row">
+				
+					
+					<form class="form-inline" role="form">
+					  <div class="form-group">
+					  	 <h2>Try it !</h2>
+
+					  	 <div id="car">
+    						  <input class="model form-control" type="text" placeholder="Car model"/>
+      						 <input class="price-by-day form-control" type="number" placeholder="Price by day"/>
+     						 <input class="price-by-km form-control" type="number" placeholder="Price by km"/>
+   						 </div>
+
+    					<div id="rental">
+    					  <input class="begin form-control" type="date" placeholder="Rental begin date"/>
+   						   <input class="end form-control" type="date" placeholder="Rental end date"/>
+    					  <input class="distance form-control" type="number" placeholder="Distance in km"/><br>
+      						Option :    <input class="option form-control" type="checkbox" style="width:20px; height:20px;" placeholder="Deductible option"/><br>
+    					</div>
+					    
+					  </div> <br>
+					  
+					<input type="button" class="btn btn-warning btn-lg" id="compute" value="Go !" onclick="masquer_div('a_masquer');" />
+					<!-- <button type="submit" id="compute" class="btn btn-warning btn-lg">Go !</button> -->
+					</div>
+					</form>	
+					  
+					<div id="a_masquer" style="display:none">
+  					<div id="actors"></div>
+    					<script id="template" type="x-tmpl-mustache">
+      					{{#actors}}
+        				<div class="actor">
+         			 <span>{{who}}</span>
+         			 <span>{{type}}</span>
+          			<span>{{amount}}</span>
+       					 </div>
+      				{{/actors}}
+   				 </script>
+
+					</div>
+							
+				<!-- /col-lg-6 -->
+
+				
  
 
-    <div id="car">
-      <form>
-      <input class="model" type="text" placeholder="Car model"/>
-  
+     				
+    		
 
-      <input class="price-by-day" type="number" placeholder="Price by day"/>
-      <input class="price-by-km" type="number" placeholder="Price by km"/>
-    </form>
-    </div>
+					
+    			<script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
+   				 <script src="drivy.js"></script>
+    			<script src="index.js"></script>
 
-    <div id="rental">
-      <form id="form2" >
-      <input class="begin" type="date" placeholder="Rental begin date"/>
-      <input class="end" type="date" placeholder="Rental end date"/>
-      <input class="distance" type="number" placeholder="Distance in km"/>
-      <input class="option" type="checkbox" placeholder="Deductible option"/>
-    </form>
-    </div>
-
-  </div>
-
-    <button id="compute">Compute</button>
-    
-<div class="content">
-    <div id="actors"></div>
-</div>
-
-    <script id="template" type="x-tmpl-mustache">
-      {{#actors}}
-        <div class="actor">
-          <span>{{who}}</span>
-          <span>{{type}}</span>
-          <span>{{amount}}</span>
-        </div>
-       {{/actors}}
-    </script>
+    			<script type="text/javascript"> 
+    			function masquer_div(id)
+{
+  if (document.getElementById(id).style.display == 'none') {
+       document.getElementById(id).style.display = 'block';
+  }
+  else {
+       document.getElementById(id).style.display = 'none';
+  }
+}
+    			</script>
+					<!-- <img class="img-responsive" src="assets/img/ipad-hand.png" alt=""> -->
 
 
+				</div>
+			
+				
+			</div><!-- /row -->
+		</div><!-- /container -->
+	</div><!-- /headerwrap -->
+	
+	
+	<div class="container">
+		<div class="row mt centered">
+			<div class="col-lg-6 col-lg-offset-3">
+				<h1>Your Landing Page<br/>Looks Wonderful Now.</h1>
+				<h3>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</h3>
+			</div>
+		</div><!-- /row -->
+		
+		<div class="row mt centered">
+			<div class="col-lg-4">
+				<img src="assets/img/ser01.png" width="180" alt="">
+				<h4>1 - Browser Compatibility</h4>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
+			</div><!--/col-lg-4 -->
 
-  
+			<div class="col-lg-4">
+				<img src="assets/img/ser02.png" width="180" alt="">
+				<h4>2 - Email Campaigns</h4>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
 
+			</div><!--/col-lg-4 -->
 
+			<div class="col-lg-4">
+				<img src="assets/img/ser03.png" width="180" alt="">
+				<h4>3 - Gather Your Notes</h4>
+				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever.</p>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/2.2.1/mustache.min.js"></script>
-    <script src="drivy.js"></script>
-    <script src="index.js"></script>
+			</div><!--/col-lg-4 -->
+		</div><!-- /row -->
+	</div><!-- /container -->
+	
+	
+		<p class="centered">Created by BlackTie.co - Attribution License 3.0 - 2013</p>
+	</div><!-- /container -->
+	
 
-
-      <footer>
-        <script src="http://code.jquery.com/jquery.js"></script>
-        <script src="bootstrap/js/bootstrap.min.js"></script>
-    </footer>
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
   </body>
 </html>
